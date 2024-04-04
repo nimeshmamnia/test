@@ -14,6 +14,8 @@ def getclues(number, secret_number):
         return 'Bagels'
     else:
         return ' '.join(clues)
+
+
 def getsecretnumber():
     numbers = list('1234567890')
     random.shuffle(numbers)
@@ -36,12 +38,13 @@ def getsecretnumber():
 secret_number = getsecretnumber()
 
 print('''Bagels, a deductive logic game.
-I am thinking of a ''', NUM_DIGITS,'''- digit number with no repeated digits. Try to guess what it is. Here are some clues: 
+I am thinking of a ''', NUM_DIGITS, '''- digit number with no repeated digits. Try to guess what it is. 
+Here are some clues: 
 When I say --> That means:
 1. Pico - One digit is correct but in the wrong position.
 2. Fermi - One digit is correct and in the right position.
 3. Bagels - No digit is correct.
-I have already guessed a number and you have''', MAX_GUESS,'''guesses left''')
+I have already guessed a number and you have''', MAX_GUESS, '''guesses left''')
 print(secret_number)
 numGuesses = 1
 while numGuesses < MAX_GUESS:
@@ -59,8 +62,3 @@ if numGuesses > MAX_GUESS:
     print('Sorry! you ran out of guesses')
     print('Correct answer was', secret_number)
     print('Thanks for playing')
-
-
-
-
-
