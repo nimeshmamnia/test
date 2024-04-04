@@ -21,7 +21,3 @@ chart = BarChart()
 chart.add_data(ref)
 sheet.add_chart(chart, 'h30')
 wb.save('accounts2.xlsx')
-
-
-
-
