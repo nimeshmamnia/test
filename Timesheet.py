@@ -14,6 +14,7 @@ def sum_timesheet(filename):
     total_hours = 0
     total_minutes = 0  # Initialize total minutes
     with open(filename, "r") as timesheet_file:
+
         # Read each line from the file
         for time_range in timesheet_file:
             check_in, check_out = time_range.split('-')
@@ -25,6 +26,7 @@ def sum_timesheet(filename):
             work_minutes = check_out_minutes - check_in_minutes
 
             if work_minutes < 0:
+
                 # Adjust for negative minutes (e.g., check-in 2:30, check-out 4)
                 work_hours -= 1
                 work_minutes += 60
