@@ -8,22 +8,24 @@ def parse_time(time_str):
         hours = int(time_str)
         minutes = 0
     return hours, minutes
+
+
 def sum_timesheet(filename):
     total_hours = 0
     total_minutes = 0  # Initialize total minutes
     with open(filename, "r") as timesheet_file:
-    # Read each line from the file
+        # Read each line from the file
         for time_range in timesheet_file:
             check_in, check_out = time_range.split('-')
             check_in_hours, check_in_minutes = parse_time(check_in.strip())
             check_out_hours, check_out_minutes = parse_time(check_out.strip())
 
-        # Calculate work hours for each time range
+            # Calculate work hours for each time range
             work_hours = check_out_hours - check_in_hours
             work_minutes = check_out_minutes - check_in_minutes
 
             if work_minutes < 0:
-            # Adjust for negative minutes (e.g., check-in 2:30, check-out 4)
+                # Adjust for negative minutes (e.g., check-in 2:30, check-out 4)
                 work_hours -= 1
                 work_minutes += 60
 
@@ -35,6 +37,7 @@ def sum_timesheet(filename):
     total_minutes %= 60
 
     return total_hours, total_minutes
+
 
 filename = input("Enter text file with check in and check out times: ")
 total_work_hours, total_work_minutes = sum_timesheet(filename)

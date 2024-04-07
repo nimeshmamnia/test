@@ -45,4 +45,3 @@ with open(input_file, 'r') as file:
             output.write(reversed_line)
 
 print("Lines are reversed, Successfully!")
-

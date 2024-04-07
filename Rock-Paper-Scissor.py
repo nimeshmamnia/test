@@ -1,4 +1,5 @@
 import random, sys
+
 user_win = 0
 computer_win = 0
 tie = 0
@@ -25,4 +26,4 @@ while True:
     else:
         print("You loose")
         computer_win += 1
-    print('Score: You = ', user_win, "Computer = ",computer_win, "Tie = ", tie)
+    print('Score: You = ', user_win, "Computer = ", computer_win, "Tie = ", tie)

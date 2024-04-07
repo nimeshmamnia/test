@@ -1,20 +1,34 @@
-filename = input("Enter file Location: ")
-#filehandler = open(filename)
-names = {}
-with open(filename, 'r', encoding='utf-8', errors='ignore') as filehandler:
-    for lines in filehandler:
-        lines = lines.strip()
-        words = lines.split()
-        for word in words:
-            names[word] = names.get(word, 0) + 1
+def bits_to_bytes(bits_string):
+    """
+    Converts a string of bits to a bytes object.
 
-big_count = None
-big_word = None
-for word, count in names.items():
-    if big_count is None or count > big_count:
-        big_word = word
-        big_count = count
+    Args:
+        bits_string (str): A string containing only '0' and '1' characters representing bits.
 
-print(big_word, big_count)
-filehandler.close()
+    Returns:
+        bytes: The converted bytes object.
 
+    Raises:
+        ValueError: If the input string length is not a multiple of 8 (not a valid byte).
+    """
+
+    # Check for invalid input length (not a multiple of 8)
+    if len(bits_string) % 8 != 0:
+        raise ValueError("Invalid input: Bits string length must be a multiple of 8.")
+
+    # Convert the bit string to a list of 8-bit chunks
+    byte_chunks = [bits_string[i:i + 8] for i in range(0, len(bits_string), 8)]
+
+    # Convert each 8-bit chunk to an integer (representing the byte value)
+    byte_values = [int(chunk, 2) for chunk in byte_chunks]
+
+    # Create and return the bytes object from the list of integer values
+    return bytes(byte_values)
+
+
+# Example usage
+bits_string = "1100110010101101"
+converted_bytes = bits_to_bytes(bits_string)
+
+print(f"Bits string: {bits_string}")
+print(f"Converted bytes: {converted_bytes}")

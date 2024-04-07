@@ -1,4 +1,4 @@
-#-------------------Josephus problem to find the surviving person-------------
+# -------------------Josephus problem to find the surviving person-------------
 # def solve(my_list, index, k):
 #     """
 #     Simulates the Josephus problem to find the surviving person.
