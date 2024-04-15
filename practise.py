@@ -1,34 +1,15 @@
-def bits_to_bytes(bits_string):
-    """
-    Converts a string of bits to a bytes object.
+def add_unique_chars_to_dict(s):
+    char_dict = {}  # Start with an empty dictionary
 
-    Args:
-        bits_string (str): A string containing only '0' and '1' characters representing bits.
+    for char in s:
+        if char not in char_dict:
+            char_dict[char] = 1  # Add the character to the dictionary if it's not present
+        else:
+            char_dict[char] += 1  # Increment the count if character is already in the dictionary
 
-    Returns:
-        bytes: The converted bytes object.
-
-    Raises:
-        ValueError: If the input string length is not a multiple of 8 (not a valid byte).
-    """
-
-    # Check for invalid input length (not a multiple of 8)
-    if len(bits_string) % 8 != 0:
-        raise ValueError("Invalid input: Bits string length must be a multiple of 8.")
-
-    # Convert the bit string to a list of 8-bit chunks
-    byte_chunks = [bits_string[i:i + 8] for i in range(0, len(bits_string), 8)]
-
-    # Convert each 8-bit chunk to an integer (representing the byte value)
-    byte_values = [int(chunk, 2) for chunk in byte_chunks]
-
-    # Create and return the bytes object from the list of integer values
-    return bytes(byte_values)
-
+    return char_dict
 
 # Example usage
-bits_string = "1100110010101101"
-converted_bytes = bits_to_bytes(bits_string)
-
-print(f"Bits string: {bits_string}")
-print(f"Converted bytes: {converted_bytes}")
+input_string = "hello world"
+result_dict = add_unique_chars_to_dict(input_string)
+print(result_dict)
