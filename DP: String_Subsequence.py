@@ -12,7 +12,7 @@ def is_subsequence(t, s, m, n):
         return is_subsequence(t, s, m, n + 1)
 
 
-t_string = "axbvsckmdle"
+t_string = "acbvsckmdle"
 s_string = "acb"
 
 if is_subsequence(t_string, s_string, 0, 0):

@@ -1,15 +1,11 @@
-def add_unique_chars_to_dict(s):
-    char_dict = {}  # Start with an empty dictionary
+my_dict = {'a': 1, 'b': 2, 'c': 3}
 
-    for char in s:
-        if char not in char_dict:
-            char_dict[char] = 1  # Add the character to the dictionary if it's not present
-        else:
-            char_dict[char] += 1  # Increment the count if character is already in the dictionary
+# Using values() method
+values = my_dict.values()
 
-    return char_dict
+a, b, c = values
 
-# Example usage
-input_string = "hello world"
-result_dict = add_unique_chars_to_dict(input_string)
-print(result_dict)
+print(values)
+print(a)  # Output: 1
+print(b)  # Output: 2
+print(c)  # Output: 3

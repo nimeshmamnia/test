@@ -20,8 +20,7 @@ def solve(ip, op, op_list):
 
 ip_1 = input("Enter string to find its subsets: ")
 # Making sure there are no duplicate characters in string. If there are, printing only unique subsets.
-lst = list(set(ip_1))
-ip_string = ''.join(lst)
+ip_string = ''.join(list(set(ip_1)))
 op_string = ""
 op_lst = []
 print("\n Subsets are: ")

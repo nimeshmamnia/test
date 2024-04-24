@@ -8,7 +8,6 @@ def findAnagrams(s, p):
         if j - i + 1 < K:
             j += 1
         elif j - i + 1 == K:
-            temp2 = temp.copy()
             temp_string = ''.join(sorted(temp))
             if temp_string == ''.join(sorted(p)):
                 ans += 1
