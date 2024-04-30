@@ -27,3 +27,48 @@ Input: s = "06"
 Output: 0
 Explanation: "06" cannot be mapped to "F" because of the leading zero ("6" is different from "06").
 '''
+
+
+def decodeways(s, n, i):
+    if i == n:
+        return 1
+    if s[i] == '0':
+        return 0
+
+    result = decodeways(s, n, i + 1)
+    if i + 1 < n:
+        if s[i] == '1' or (s[i] == '2' and s[i + 1] <= '6'):
+            result = result + decodeways(s, n, i + 2)
+
+    return result
+
+
+string_s = "226"
+
+print("Number of ways", string_s, "can be decoded are: ", decodeways(string_s, len(string_s), 0))
+
+# Method 2: Recursion + Memoization
+
+"""class Solution(object):
+    def decodeways(self, s, n, i, memo):
+        if i == n:
+            return 1
+        if s[i] == '0':
+            return 0
+        if i in memo:
+            return memo[i]
+
+        result = self.decodeways(s, n, i + 1, memo)
+        if i + 1 < n:
+            if s[i] == '1' or (s[i] == '2' and s[i + 1] <= '6'):
+                result += self.decodeways(s, n, i + 2, memo)
+
+        memo[i] = result
+        return result
+
+    def numDecodings(self, s):
+        n = len(s)
+        i = 0
+        memo = {}
+        return self.decodeways(s, n, i, memo)
+"""

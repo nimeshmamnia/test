@@ -12,6 +12,28 @@ Explanation: The repeated subarray with maximum length is [0,0,0,0,0].'''
 
 # combining 2 programs in one where we will be printing the longest common substring (its length and string itself)
 
+# Method 1: Using recursion ..
+'''
+def lcs_recursion(str1, str2, m, n, count):
+    if m == 0 or n == 0:
+        return 0
+    elif str1[m - 1] == str2[n - 1]:
+        count = lcs_recursion(str1, str2, m - 1, n - 1, count + 1)
+    else:
+        count = max(count, lcs_recursion(str1, str2, m - 1, n, 0), lcs_recursion(str1, str2, m, n - 1, 0))
+
+    return count
+
+
+s_string = "babad"
+t_string = "dabab"
+count = 0
+
+print("Longest Common substring length:", lcs_recursion(s_string, t_string, len(s_string), len(t_string), count))
+'''
+
+
+# Method 2: Using DP Approach
 def lcs(nums1, nums2, x, y):
     # Base case: If either string has a length of 0, LCS length is 0
 

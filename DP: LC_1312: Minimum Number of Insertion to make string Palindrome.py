@@ -22,16 +22,15 @@ def minInsertions(s):
     x = len(s)
     t = ''.join(reversed(s))
     dp = [[0] * (x + 1) for _ in range(x + 1)]
-    lps = 0
     for i in range(1, x + 1):
         for j in range(1, x + 1):
             if s[i - 1] == t[j - 1]:
                 dp[i][j] = 1 + dp[i - 1][j - 1]
-                lps = max(lps, dp[i][j])
             else:
                 dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
 
     # Minimum number of deletion = Minimum number of insertion = len(x) - len(lps)
-    return x - lps
+    return x - dp[x][x]
 
-minInsertions("zzazz")
+
+print(minInsertions("zbzazz"))

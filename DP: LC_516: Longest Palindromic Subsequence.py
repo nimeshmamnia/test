@@ -28,7 +28,7 @@ def lps(text1, text2, x, y):
     return dp[x][y]
 
 
-s_string = "cbbd"
+s_string = "bbbab"
 t_string = ''.join(reversed(s_string))
 
 print("Longest Palindromic Subsequence:", lps(s_string, t_string, len(s_string), len(t_string)))

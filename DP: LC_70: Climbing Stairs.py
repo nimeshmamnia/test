@@ -21,17 +21,19 @@ Explanation: This program uses Dynamic Programming concept. Please refer to prog
 '''
 
 
-class Solution(object):
-    def climbStairs(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-        one = two = 1
+def climbStairs(n):
+    """
+    :type n: int
+    :rtype: int
+    """
+    one = two = 1
 
-        for i in range(n - 1):
-            temp = one
-            one = one + two
-            two = temp
+    for i in range(n - 1):
+        temp = one + two
+        one = two
+        two = temp
 
-        return one
+    return temp
+
+
+print(climbStairs(5))

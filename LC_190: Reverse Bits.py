@@ -5,7 +5,7 @@ def reverseBits(n):
     return int(str_s, 2)
 
 
-number = 10100101000001111010011100
+number = 567
 print(reverseBits(number))
 
 '''

@@ -26,7 +26,8 @@ def coin_change(coins, amount):
     for i in range(n + 1):
         t[i][0] = 0
 
-    # Initialize the first row for amounts that are not zero; these are inf since no amount > 0 can be formed with 0 coins
+    # Initialize the first row for amounts that are not zero; these are inf since no amount > 0 can be formed with 0
+    # coins
     for j in range(1, amount + 1):
         t[0][j] = float('inf')
 
@@ -42,6 +43,7 @@ def coin_change(coins, amount):
 
     # The bottom-right cell of the matrix will hold the answer
     return t[n][amount] if t[n][amount] != float('inf') else -1
+
 
 # Example usage
 coins1 = [1, 2, 5]

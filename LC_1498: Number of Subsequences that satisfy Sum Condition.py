@@ -1,6 +1,6 @@
-'''
-You are given an array of integers nums and an integer target. Return the number of non-empty subsequences of nums such
-that the sum of the minimum and maximum element on it is less or equal to target. Since the answer may be too large, return it modulo 109 + 7.
+"""You are given an array of integers nums and an integer target. Return the number of non-empty subsequences of nums
+such that the sum of the minimum and maximum element on it is less or equal to target. Since the answer may be too
+large, return it modulo 109 + 7.
 
 Example 1:
 Input: nums = [3,5,6,7], target = 9
@@ -21,7 +21,7 @@ Example 3:
 Input: nums = [2,3,3,4,6,7], target = 12
 Output: 61
 Explanation: There are 63 non-empty subsequences, two of them do not satisfy the condition ([6,7], [7]).
-Number of valid subsequences (63 - 2 = 61). '''
+Number of valid subsequences (63 - 2 = 61). """
 
 
 class Solution(object):
